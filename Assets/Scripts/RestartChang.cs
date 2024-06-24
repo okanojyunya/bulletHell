@@ -5,9 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class RestartChang : MonoBehaviour
 {
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("InGame Scene");
+        }
+    }
     public void restart_button()
     {
         SceneManager.LoadScene("Start Scene");
-        Debug.Log("リスタートボタンが認識しています");
+
     }
 }

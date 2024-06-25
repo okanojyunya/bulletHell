@@ -29,8 +29,9 @@ public class EnemyHP : MonoBehaviour
             Hp -= 1;
             HP.value = (float)Hp;
             StartCoroutine("HitColor");
+            GetComponent<AudioSource>().Play();
 
-           
+
         }
 
         if (Hp == 0)

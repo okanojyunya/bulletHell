@@ -10,8 +10,8 @@ public class EnemyHP : MonoBehaviour
     public Slider HP;
     /// <summary>ìGÇÃHPÇÃïœêî</summary>
     float m_enemyHp = 10;
-
     float Hp;
+    
 
     private void Start()
     {
@@ -25,9 +25,11 @@ public class EnemyHP : MonoBehaviour
         if (collision.gameObject.tag =="Bullet")
         {
 
-            //m_enemyHp -= 1;
+            
             Hp -= 1;
             HP.value = (float)Hp;
+            StartCoroutine("HitColor");
+
            
         }
 
@@ -37,6 +39,14 @@ public class EnemyHP : MonoBehaviour
             Destroy(HP);
         }
 
+    }
+
+    IEnumerator HitColor()
+    {
+        SpriteRenderer sp = this.GetComponent<SpriteRenderer>();
+        sp.color = Color.white;
+        yield return new WaitForSeconds(0.1f);
+        sp.color = Color.red;
     }
 
 }
